@@ -1,7 +1,7 @@
 {
-    "title": "Web Scraper Input",
+    "title": "Keyword extractor input",
     "type": "object",
-    "description": "Web Scraper loads <b>Start URLs</b> in the Chrome browser and executes <b>Page function</b> on each page to extract data from it. To follow links and scrape additional pages, check <b>Use request queue</b> and set <b>Link selector</b> with <b>Pseudo-URLs</b> to specify which links to follow, or manually enqueue new links in <b>Page function</b>. For details, see actor's <a href='https://apify.com/apify/web-scraper' target='_blank' rel='noopener'>README</a> or <a href='https://apify.com/docs/scraping/tutorial/introduction' target='_blank' rel='noopener'>Web scraping tutorial</a> in documentation.",
+    "description": "Keyword extractor.",
     "schemaVersion": 1,
     "properties": {
         "startUrls": {
@@ -92,12 +92,6 @@
             "description": "How often will the browser itself rotate. Pick higher for smaller consumption, pick less to rotate (test) more proxies",
             "minimum": 1,
             "default": 50
-        },
-        "headfull": {
-            "title": "Headfull browser(XVFB)",
-            "type": "boolean",
-            "description": "Only works for puppeteer type",
-            "default": false
         },
         "useChrome": {
             "title": "Use Chrome",

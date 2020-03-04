@@ -24,7 +24,6 @@ Apify.main(async () => {
         useBrowser = false,
         proxyConfiguration = { useApifyProxy: true },
         retireInstanceAfterRequestCount = 10,
-        headfull = false,
         useChrome = false,
         waitFor,
     } = input;
@@ -114,7 +113,6 @@ Apify.main(async () => {
     const launchPuppeteerOptions = {
         proxyUrl,
         stealth: true,
-        headless: headfull ? undefined : true,
         useChrome,
         userAgent: Apify.utils.getRandomUserAgent(),
     };
