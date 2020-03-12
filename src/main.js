@@ -41,15 +41,18 @@ Apify.main(async () => {
         ? Apify.getApifyProxyUrl({ groups: proxyConfiguration.apifyProxyGroups, country: proxyConfiguration.apifyProxyCountry })
         : null;
 
-    const requestQueue = await Apify.openRequestQueue();
+    const sources = [];
 
     for (const req of startUrls) {
-        await requestQueue.addRequest({
+        sources.push({
             ...req,
             headers: { 'User-Agent': Apify.utils.getRandomUserAgent() },
             userData: { depth: 0 },
         });
     }
+
+    const requestList = await Apify.openRequestList('LIST', sources);
+    const requestQueue = await Apify.openRequestQueue();
 
     const handlePageFunction = async ({ request, $, body, page }) => {
         const { depth } = request.userData;
@@ -104,6 +107,7 @@ Apify.main(async () => {
         maxRequestRetries: 3,
         maxRequestsPerCrawl: maxPagesPerCrawl,
         maxConcurrency,
+        requestList,
         requestQueue,
         handlePageFunction,
         proxyUrls: proxyUrl ? [proxyUrl] : null,

@@ -1,11 +1,11 @@
 ## Keyword Extractor
 
-Can deeply crawl a website and counts how many times provided keywords found on the page.
+Can deeply crawl a website and counts how many times are provided keywords found on the page.
 
 ### How to use
 - You can pass in any number of keywords that you want to count.
 - You can combine Start URLs, Pseudo Urls and link selector to traverse any number of pages accross websites. Check our [scraping tutorial](https://docs.apify.com/scraping) on how to use these.
-- You can specify `maxDepth` and `maxPagesPerCrawl` to limit the scope of the scrape. Start URLs have depth 0. So if you want just the start URLs, set `maxDepth` to 0 and etc.
+- You can specify `maxDepth` and `maxPagesPerCrawl` to limit the scope of the scrape. Start URLs have depth 0. So if you want just the start URLs, set `maxDepth` to 0, etc.
 - You can pick case sensitive search and search through scripts.
 - You can choose to scrape with or without browser. Browser is more expensive but allows JavaScript rendering and waiting.
 - For browser, you can use many additional features
